@@ -94,18 +94,23 @@
 
 
 
-  <meta name="description" content="前言在linux下，一个进程想保持后台运行，使进程或服务可以在终端退出后可以继续运行，可以在多种方式，如使用nohup，其中使用Screen保持多个会话，也是一种不错的选择。 安装 Redhat1$ yum install screen Debian/Ubuntu1$ apt-get install screen 使用通过可以先创建一个会话，然后在会话中运行需要的服务。 创建screen会话1$">
-<meta name="keywords" content="linux">
+  <meta name="description" content="在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。  找出CPU占用最高的进程PID1top  找出占用高的线程tid1top -H -p PID  将线程号转成16进制1printf &quot;%x\n&quot; tid  生成此线程当前的线程文件123jstack">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Screen管理多个会话">
-<meta property="og:url" content="https://tatawang.net/linux-use-screen.html">
+<meta property="og:title" content="Java进程100%CPU问题解决思路">
+<meta property="og:url" content="https://tatawang.net/p/51375.html">
 <meta property="og:site_name" content="Tata&#39;s Blog">
-<meta property="og:description" content="前言在linux下，一个进程想保持后台运行，使进程或服务可以在终端退出后可以继续运行，可以在多种方式，如使用nohup，其中使用Screen保持多个会话，也是一种不错的选择。 安装 Redhat1$ yum install screen Debian/Ubuntu1$ apt-get install screen 使用通过可以先创建一个会话，然后在会话中运行需要的服务。 创建screen会话1$">
+<meta property="og:description" content="在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。  找出CPU占用最高的进程PID1top  找出占用高的线程tid1top -H -p PID  将线程号转成16进制1printf &quot;%x\n&quot; tid  生成此线程当前的线程文件123jstack">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-02T10:22:21.000Z">
+<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-001.png">
+<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-002.png">
+<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-003.png">
+<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-004.png">
+<meta property="og:updated_time" content="2019-07-03T07:18:06.724Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Screen管理多个会话">
-<meta name="twitter:description" content="前言在linux下，一个进程想保持后台运行，使进程或服务可以在终端退出后可以继续运行，可以在多种方式，如使用nohup，其中使用Screen保持多个会话，也是一种不错的选择。 安装 Redhat1$ yum install screen Debian/Ubuntu1$ apt-get install screen 使用通过可以先创建一个会话，然后在会话中运行需要的服务。 创建screen会话1$">
+<meta name="twitter:title" content="Java进程100%CPU问题解决思路">
+<meta name="twitter:description" content="在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。  找出CPU占用最高的进程PID1top  找出占用高的线程tid1top -H -p PID  将线程号转成16进制1printf &quot;%x\n&quot; tid  生成此线程当前的线程文件123jstack">
+<meta name="twitter:image" content="http://cdn.lwdy.xyz/blog/java-cpu-001.png">
 
 
 
@@ -115,7 +120,7 @@
 
   
   
-  <link rel="canonical" href="https://tatawang.net/linux-use-screen">
+  <link rel="canonical" href="https://tatawang.net/p/51375">
 
 
 
@@ -125,7 +130,7 @@
   };
 </script>
 
-  <title>使用Screen管理多个会话 | Tata's Blog</title>
+  <title>Java进程100%CPU问题解决思路 | Tata's Blog</title>
   
 
 
@@ -336,7 +341,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tatawang.net/linux-use-screen.html">
+    <link itemprop="mainEntityOfPage" href="https://tatawang.net/p/51375.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tata">
@@ -353,7 +358,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">使用Screen管理多个会话
+          <h2 class="post-title" itemprop="name headline">Java进程100%CPU问题解决思路
 
               
             
@@ -379,7 +384,7 @@
                 
               
 
-              <time title="创建时间：2018-05-20 18:26:05" itemprop="dateCreated datePublished" datetime="2018-05-20T18:26:05+08:00">2018-05-20</time>
+              <time title="创建时间：2018-06-21 02:17:19" itemprop="dateCreated datePublished" datetime="2018-06-21T02:17:19+08:00">2018-06-21</time>
             </span>
           
 
@@ -394,7 +399,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
 
                 
                 
@@ -432,17 +437,18 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在linux下，一个进程想保持后台运行，使进程或服务可以在终端退出后可以继续运行，可以在多种方式，如使用<code>nohup</code>，其中使用<code>Screen</code>保持多个会话，也是一种不错的选择。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p> Redhat<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum <span class="keyword">install</span> screen</span><br></pre></td></tr></table></figure></p>
-<p>Debian/Ubuntu<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-<span class="builtin-name">get</span> install screen</span><br></pre></td></tr></table></figure></p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>通过可以先创建一个会话，然后在会话中运行需要的服务。</p>
-<h2 id="创建screen会话"><a href="#创建screen会话" class="headerlink" title="创建screen会话"></a>创建screen会话</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$<span class="built_in"> screen </span>-S abc</span><br></pre></td></tr></table></figure>
-<h2 id="离开并保留screen会话（常用）"><a href="#离开并保留screen会话（常用）" class="headerlink" title="离开并保留screen会话（常用）"></a>离开并保留screen会话（常用）</h2><p>快捷键<code>Ctrl+a d</code>(即按住Ctrl，依次再按a,d) </p>
-<h2 id="恢复（进入）screen会话"><a href="#恢复（进入）screen会话" class="headerlink" title="恢复（进入）screen会话"></a>恢复（进入）screen会话</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$<span class="built_in"> screen </span>-r abc</span><br></pre></td></tr></table></figure>
-<h2 id="关闭screen的会话"><a href="#关闭screen的会话" class="headerlink" title="关闭screen的会话"></a>关闭screen的会话</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
-<p>会提示：[screen is terminating]，表示已经成功退出screen会话。 </p>
-<h2 id="列出所有的screen"><a href="#列出所有的screen" class="headerlink" title="列出所有的screen"></a>列出所有的screen</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$<span class="built_in"> screen </span>-ls</span><br><span class="line">There are screens on:</span><br><span class="line">	8503.mojoqq	(Detached)</span><br><span class="line">	7244.mojowx	(Detached)</span><br><span class="line">2 Sockets <span class="keyword">in</span> /var/run/screen/S-root.</span><br></pre></td></tr></table></figure>
-<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+<span class="selector-tag">a</span> c ：在当前screen会话中创建窗口 </span><br><span class="line">Ctrl+<span class="selector-tag">a</span> w ：窗口列表 </span><br><span class="line">Ctrl+<span class="selector-tag">a</span> n ：下一个窗口 </span><br><span class="line">Ctrl+<span class="selector-tag">a</span> <span class="selector-tag">p</span> ：上一个窗口 </span><br><span class="line">Ctrl+<span class="selector-tag">a</span> <span class="number">0</span>-<span class="number">9</span> ：在第<span class="number">0</span>个窗口和第<span class="number">9</span>个窗口之间切换</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。</p>
+</blockquote>
+<h1 id="找出CPU占用最高的进程PID"><a href="#找出CPU占用最高的进程PID" class="headerlink" title="找出CPU占用最高的进程PID"></a>找出CPU占用最高的进程PID</h1><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">top</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.lwdy.xyz/blog/java-cpu-001.png" alt></p>
+<h1 id="找出占用高的线程tid"><a href="#找出占用高的线程tid" class="headerlink" title="找出占用高的线程tid"></a>找出占用高的线程<code>tid</code></h1><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">top</span> -H -p PID</span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.lwdy.xyz/blog/java-cpu-002.png" alt></p>
+<h1 id="将线程号转成16进制"><a href="#将线程号转成16进制" class="headerlink" title="将线程号转成16进制"></a>将线程号转成16进制</h1><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">printf</span> <span class="string">"%x\n"</span> tid</span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.lwdy.xyz/blog/java-cpu-003.png" alt></p>
+<h1 id="生成此线程当前的线程文件"><a href="#生成此线程当前的线程文件" class="headerlink" title="生成此线程当前的线程文件"></a>生成此线程当前的线程文件</h1><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jstack <span class="number">6007</span>&gt; /tmp/<span class="number">6007.</span>stack</span><br><span class="line">vim /tmp/<span class="number">6007.</span>stack</span><br><span class="line">/<span class="number">179</span>d</span><br></pre></td></tr></table></figure>
+<h1 id="根据线程文件中的问题描述定位代码"><a href="#根据线程文件中的问题描述定位代码" class="headerlink" title="根据线程文件中的问题描述定位代码"></a>根据线程文件中的问题描述定位代码</h1><p><img src="http://cdn.lwdy.xyz/blog/java-cpu-004.png" alt></p>
+
       
     </div>
 
@@ -468,7 +474,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/java/" rel="tag"># java</a>
           
         </div>
       
@@ -481,14 +487,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/p/29511.html" rel="next" title="使用Screen管理多个会话">
+                <i class="fa fa-chevron-left"></i> 使用Screen管理多个会话
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java-jvm-cpu-100.html" rel="prev" title="Java进程100%CPU问题解决思路">
-                Java进程100%CPU问题解决思路 <i class="fa fa-chevron-right"></i>
+              <a href="/p/64878.html" rel="prev" title="免费试用Google云">
+                免费试用Google云 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -672,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建screen会话"><span class="nav-number">3.1.</span> <span class="nav-text">创建screen会话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#离开并保留screen会话（常用）"><span class="nav-number">3.2.</span> <span class="nav-text">离开并保留screen会话（常用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复（进入）screen会话"><span class="nav-number">3.3.</span> <span class="nav-text">恢复（进入）screen会话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭screen的会话"><span class="nav-number">3.4.</span> <span class="nav-text">关闭screen的会话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出所有的screen"><span class="nav-number">3.5.</span> <span class="nav-text">列出所有的screen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用快捷键"><span class="nav-number">3.6.</span> <span class="nav-text">常用快捷键</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#找出CPU占用最高的进程PID"><span class="nav-number">1.</span> <span class="nav-text">找出CPU占用最高的进程PID</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出占用高的线程tid"><span class="nav-number">2.</span> <span class="nav-text">找出占用高的线程tid</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将线程号转成16进制"><span class="nav-number">3.</span> <span class="nav-text">将线程号转成16进制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成此线程当前的线程文件"><span class="nav-number">4.</span> <span class="nav-text">生成此线程当前的线程文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#根据线程文件中的问题描述定位代码"><span class="nav-number">5.</span> <span class="nav-text">根据线程文件中的问题描述定位代码</span></a></li></ol></div>
             
 
           </div>
