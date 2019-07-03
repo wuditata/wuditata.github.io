@@ -94,31 +94,23 @@
 
 
 
-  <meta name="description" content="Google Cloud Platform 免费方案介绍Google Cloud一直有一个有限期12个月，赠送300＄的云产品试用活动，只需要通过一张信用卡的验证即可。 因为服务器在国外，可以用来学习，也是用来做梯子的选择。  认证信用卡，免费送$300，有效期12个月 可选多地区服务器，比如相对网速比较好的台湾">
-<meta name="keywords" content="gcp">
+  <meta name="description" content="在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。  找出CPU占用最高的进程PID1top  找出占用高的线程tid1top -H -p PID  将线程号转成16进制1printf &quot;%x\n&quot; tid  生成此线程当前的线程文件123jstack">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="免费试用Google云">
-<meta property="og:url" content="https://tatawang.net/2018/07/10/use-google-cloud-platform/index.html">
+<meta property="og:title" content="Java进程100%CPU问题解决思路">
+<meta property="og:url" content="https://tatawang.net/java-jvm-cpu-100.html">
 <meta property="og:site_name" content="Tata&#39;s Blog">
-<meta property="og:description" content="Google Cloud Platform 免费方案介绍Google Cloud一直有一个有限期12个月，赠送300＄的云产品试用活动，只需要通过一张信用卡的验证即可。 因为服务器在国外，可以用来学习，也是用来做梯子的选择。  认证信用卡，免费送$300，有效期12个月 可选多地区服务器，比如相对网速比较好的台湾">
+<meta property="og:description" content="在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。  找出CPU占用最高的进程PID1top  找出占用高的线程tid1top -H -p PID  将线程号转成16进制1printf &quot;%x\n&quot; tid  生成此线程当前的线程文件123jstack">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185707498.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185707504.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185707505.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185707533.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185707533.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185707544.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185707534.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185707538.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185707539.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185884215.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185707541.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/1531185707542.png">
+<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-001.png">
+<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-002.png">
+<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-003.png">
+<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-004.png">
 <meta property="og:updated_time" content="2019-07-02T10:22:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="免费试用Google云">
-<meta name="twitter:description" content="Google Cloud Platform 免费方案介绍Google Cloud一直有一个有限期12个月，赠送300＄的云产品试用活动，只需要通过一张信用卡的验证即可。 因为服务器在国外，可以用来学习，也是用来做梯子的选择。  认证信用卡，免费送$300，有效期12个月 可选多地区服务器，比如相对网速比较好的台湾">
-<meta name="twitter:image" content="http://cdn.lwdy.xyz/blog/1531185707498.png">
+<meta name="twitter:title" content="Java进程100%CPU问题解决思路">
+<meta name="twitter:description" content="在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。  找出CPU占用最高的进程PID1top  找出占用高的线程tid1top -H -p PID  将线程号转成16进制1printf &quot;%x\n&quot; tid  生成此线程当前的线程文件123jstack">
+<meta name="twitter:image" content="http://cdn.lwdy.xyz/blog/java-cpu-001.png">
 
 
 
@@ -128,7 +120,7 @@
 
   
   
-  <link rel="canonical" href="https://tatawang.net/2018/07/10/use-google-cloud-platform/">
+  <link rel="canonical" href="https://tatawang.net/java-jvm-cpu-100">
 
 
 
@@ -138,7 +130,7 @@
   };
 </script>
 
-  <title>免费试用Google云 | Tata's Blog</title>
+  <title>Java进程100%CPU问题解决思路 | Tata's Blog</title>
   
 
 
@@ -349,7 +341,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tatawang.net/2018/07/10/use-google-cloud-platform/">
+    <link itemprop="mainEntityOfPage" href="https://tatawang.net/java-jvm-cpu-100.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tata">
@@ -366,7 +358,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">免费试用Google云
+          <h2 class="post-title" itemprop="name headline">Java进程100%CPU问题解决思路
 
               
             
@@ -392,7 +384,7 @@
                 
               
 
-              <time title="创建时间：2018-07-10 08:04:02" itemprop="dateCreated datePublished" datetime="2018-07-10T08:04:02+08:00">2018-07-10</time>
+              <time title="创建时间：2018-06-21 02:17:19" itemprop="dateCreated datePublished" datetime="2018-06-21T02:17:19+08:00">2018-06-21</time>
             </span>
           
 
@@ -407,7 +399,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/玩物/" itemprop="url" rel="index"><span itemprop="name">玩物</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
 
                 
                 
@@ -445,38 +437,17 @@
       
 
       
-        <h1 id="Google-Cloud-Platform-免费方案介绍"><a href="#Google-Cloud-Platform-免费方案介绍" class="headerlink" title="Google Cloud Platform 免费方案介绍"></a>Google Cloud Platform 免费方案介绍</h1><p>Google Cloud一直有一个有限期12个月，赠送300＄的云产品试用活动，只需要通过一张信用卡的验证即可。</p>
-<p>因为服务器在国外，可以用来学习，也是用来做梯子的选择。</p>
-<ul>
-<li>认证信用卡，免费送$300，有效期12个月</li>
-<li>可选多地区服务器，比如相对网速比较好的台湾</li>
-</ul>
-<a id="more"></a>
-<h1 id="申请步骤"><a href="#申请步骤" class="headerlink" title="申请步骤"></a>申请步骤</h1><h2 id="打开申请网址"><a href="#打开申请网址" class="headerlink" title="打开申请网址"></a>打开申请网址</h2><p><a href="https://cloud.google.com/free/" target="_blank" rel="noopener">https://cloud.google.com/free/</a></p>
-<p>点击“免费试用”按钮进入申请流程。</p>
-<h2 id="同意许可"><a href="#同意许可" class="headerlink" title="同意许可"></a>同意许可</h2><p><img src="http://cdn.lwdy.xyz/blog/1531185707498.png" alt></p>
-<h2 id="填写客户信息"><a href="#填写客户信息" class="headerlink" title="填写客户信息"></a>填写客户信息</h2><p>要点：</p>
-<ul>
-<li>帐号类型选择<code>个人</code></li>
-<li>地址什么的随便填</li>
-<li>输入正确的信用卡信息</li>
-</ul>
-<p>成功的话信用卡所在银行一盘会给你电话问是否有1美元的扣款，你只要说没问题就行了，这钱一会会自动退回信用卡。</p>
-<h1 id="创建云主机"><a href="#创建云主机" class="headerlink" title="创建云主机"></a>创建云主机</h1><h2 id="创建一个新项目"><a href="#创建一个新项目" class="headerlink" title="创建一个新项目"></a>创建一个新项目</h2><p>在网页左上角</p>
-<p><img src="http://cdn.lwdy.xyz/blog/1531185707504.png" alt></p>
-<p><img src="http://cdn.lwdy.xyz/blog/1531185707505.png" alt></p>
-<p><img src="http://cdn.lwdy.xyz/blog/1531185707533.png" alt></p>
-<p><img src="http://cdn.lwdy.xyz/blog/1531185707533.png" alt></p>
-<p><img src="http://cdn.lwdy.xyz/blog/1531185707544.png" alt></p>
-<p><img src="http://cdn.lwdy.xyz/blog/1531185707534.png" alt></p>
-<h1 id="切换到管理员帐户"><a href="#切换到管理员帐户" class="headerlink" title="切换到管理员帐户"></a>切换到管理员帐户</h1><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo -i</span></span><br></pre></td></tr></table></figure>
-<h1 id="添加防火墙端口"><a href="#添加防火墙端口" class="headerlink" title="添加防火墙端口"></a>添加防火墙端口</h1><p><img src="http://cdn.lwdy.xyz/blog/1531185707538.png" alt="enter description here"></p>
-<p><img src="http://cdn.lwdy.xyz/blog/1531185707539.png" alt="enter description here"></p>
-<p><img src="http://cdn.lwdy.xyz/blog/1531185884215.png" alt="enter description here"></p>
-<h1 id="将外网IP地址设置为静态-可选"><a href="#将外网IP地址设置为静态-可选" class="headerlink" title="将外网IP地址设置为静态(可选)"></a>将外网IP地址设置为静态(可选)</h1><p>不然每次主机重启IP会变喔</p>
-<p><img src="http://cdn.lwdy.xyz/blog/1531185707541.png" alt="enter description here"></p>
-<p><img src="http://cdn.lwdy.xyz/blog/1531185707542.png" alt="enter description here"></p>
-<p>OVER</p>
+        <blockquote>
+<p>在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。</p>
+</blockquote>
+<h1 id="找出CPU占用最高的进程PID"><a href="#找出CPU占用最高的进程PID" class="headerlink" title="找出CPU占用最高的进程PID"></a>找出CPU占用最高的进程PID</h1><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">top</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.lwdy.xyz/blog/java-cpu-001.png" alt></p>
+<h1 id="找出占用高的线程tid"><a href="#找出占用高的线程tid" class="headerlink" title="找出占用高的线程tid"></a>找出占用高的线程<code>tid</code></h1><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">top</span> -H -p PID</span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.lwdy.xyz/blog/java-cpu-002.png" alt></p>
+<h1 id="将线程号转成16进制"><a href="#将线程号转成16进制" class="headerlink" title="将线程号转成16进制"></a>将线程号转成16进制</h1><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">printf</span> <span class="string">"%x\n"</span> tid</span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.lwdy.xyz/blog/java-cpu-003.png" alt></p>
+<h1 id="生成此线程当前的线程文件"><a href="#生成此线程当前的线程文件" class="headerlink" title="生成此线程当前的线程文件"></a>生成此线程当前的线程文件</h1><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jstack <span class="number">6007</span>&gt; /tmp/<span class="number">6007.</span>stack</span><br><span class="line">vim /tmp/<span class="number">6007.</span>stack</span><br><span class="line">/<span class="number">179</span>d</span><br></pre></td></tr></table></figure>
+<h1 id="根据线程文件中的问题描述定位代码"><a href="#根据线程文件中的问题描述定位代码" class="headerlink" title="根据线程文件中的问题描述定位代码"></a>根据线程文件中的问题描述定位代码</h1><p><img src="http://cdn.lwdy.xyz/blog/java-cpu-004.png" alt></p>
 
       
     </div>
@@ -503,7 +474,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/gcp/" rel="tag"># gcp</a>
+            <a href="/tags/java/" rel="tag"># java</a>
           
         </div>
       
@@ -516,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/21/java-jvm-cpu-100/" rel="next" title="Java进程100%CPU问题解决思路">
-                <i class="fa fa-chevron-left"></i> Java进程100%CPU问题解决思路
+              <a href="/linux-use-screen.html" rel="next" title="使用Screen管理多个会话">
+                <i class="fa fa-chevron-left"></i> 使用Screen管理多个会话
               </a>
             
           </div>
@@ -526,8 +497,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/01/gradlew-permission-denied/" rel="prev" title="Gradle持续构建时gradlew无权限问题">
-                Gradle持续构建时gradlew无权限问题 <i class="fa fa-chevron-right"></i>
+              <a href="/use-google-cloud-platform.html" rel="prev" title="免费试用Google云">
+                免费试用Google云 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -711,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Google-Cloud-Platform-免费方案介绍"><span class="nav-number">1.</span> <span class="nav-text">Google Cloud Platform 免费方案介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#申请步骤"><span class="nav-number">2.</span> <span class="nav-text">申请步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#打开申请网址"><span class="nav-number">2.1.</span> <span class="nav-text">打开申请网址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同意许可"><span class="nav-number">2.2.</span> <span class="nav-text">同意许可</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#填写客户信息"><span class="nav-number">2.3.</span> <span class="nav-text">填写客户信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建云主机"><span class="nav-number">3.</span> <span class="nav-text">创建云主机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个新项目"><span class="nav-number">3.1.</span> <span class="nav-text">创建一个新项目</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#切换到管理员帐户"><span class="nav-number">4.</span> <span class="nav-text">切换到管理员帐户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加防火墙端口"><span class="nav-number">5.</span> <span class="nav-text">添加防火墙端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将外网IP地址设置为静态-可选"><span class="nav-number">6.</span> <span class="nav-text">将外网IP地址设置为静态(可选)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#找出CPU占用最高的进程PID"><span class="nav-number">1.</span> <span class="nav-text">找出CPU占用最高的进程PID</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出占用高的线程tid"><span class="nav-number">2.</span> <span class="nav-text">找出占用高的线程tid</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将线程号转成16进制"><span class="nav-number">3.</span> <span class="nav-text">将线程号转成16进制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成此线程当前的线程文件"><span class="nav-number">4.</span> <span class="nav-text">生成此线程当前的线程文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#根据线程文件中的问题描述定位代码"><span class="nav-number">5.</span> <span class="nav-text">根据线程文件中的问题描述定位代码</span></a></li></ol></div>
             
 
           </div>

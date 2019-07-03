@@ -94,23 +94,18 @@
 
 
 
-  <meta name="description" content="在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。  找出CPU占用最高的进程PID1top  找出占用高的线程tid1top -H -p PID  将线程号转成16进制1printf &quot;%x\n&quot; tid  生成此线程当前的线程文件123jstack">
-<meta name="keywords" content="java">
+  <meta name="description" content="最近发现Coding.net出了持续构建的功能，试着将一个手上的Android项目放到Coding.net上使用它的持续构建功能，运行打包时却提示了权限问题。 1./gradlew: Permission denied 因项目在Window下开发与打包，使用的是gradlew.exe，所以先前并没有遇到此问题。 可以先在项目的根目录，通过git ls-tree可以查看文件的当前的权限信息来确定是否">
+<meta name="keywords" content="gradlew,git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java进程100%CPU问题解决思路">
-<meta property="og:url" content="https://tatawang.net/2018/06/21/java-jvm-cpu-100/index.html">
+<meta property="og:title" content="Gradle持续构建时gradlew无权限问题">
+<meta property="og:url" content="https://tatawang.net/gradlew-permission-denied.html">
 <meta property="og:site_name" content="Tata&#39;s Blog">
-<meta property="og:description" content="在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。  找出CPU占用最高的进程PID1top  找出占用高的线程tid1top -H -p PID  将线程号转成16进制1printf &quot;%x\n&quot; tid  生成此线程当前的线程文件123jstack">
+<meta property="og:description" content="最近发现Coding.net出了持续构建的功能，试着将一个手上的Android项目放到Coding.net上使用它的持续构建功能，运行打包时却提示了权限问题。 1./gradlew: Permission denied 因项目在Window下开发与打包，使用的是gradlew.exe，所以先前并没有遇到此问题。 可以先在项目的根目录，通过git ls-tree可以查看文件的当前的权限信息来确定是否">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-001.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-002.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-003.png">
-<meta property="og:image" content="http://cdn.lwdy.xyz/blog/java-cpu-004.png">
 <meta property="og:updated_time" content="2019-07-02T10:22:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java进程100%CPU问题解决思路">
-<meta name="twitter:description" content="在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。  找出CPU占用最高的进程PID1top  找出占用高的线程tid1top -H -p PID  将线程号转成16进制1printf &quot;%x\n&quot; tid  生成此线程当前的线程文件123jstack">
-<meta name="twitter:image" content="http://cdn.lwdy.xyz/blog/java-cpu-001.png">
+<meta name="twitter:title" content="Gradle持续构建时gradlew无权限问题">
+<meta name="twitter:description" content="最近发现Coding.net出了持续构建的功能，试着将一个手上的Android项目放到Coding.net上使用它的持续构建功能，运行打包时却提示了权限问题。 1./gradlew: Permission denied 因项目在Window下开发与打包，使用的是gradlew.exe，所以先前并没有遇到此问题。 可以先在项目的根目录，通过git ls-tree可以查看文件的当前的权限信息来确定是否">
 
 
 
@@ -120,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://tatawang.net/2018/06/21/java-jvm-cpu-100/">
+  <link rel="canonical" href="https://tatawang.net/gradlew-permission-denied">
 
 
 
@@ -130,7 +125,7 @@
   };
 </script>
 
-  <title>Java进程100%CPU问题解决思路 | Tata's Blog</title>
+  <title>Gradle持续构建时gradlew无权限问题 | Tata's Blog</title>
   
 
 
@@ -341,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tatawang.net/2018/06/21/java-jvm-cpu-100/">
+    <link itemprop="mainEntityOfPage" href="https://tatawang.net/gradlew-permission-denied.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tata">
@@ -358,7 +353,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Java进程100%CPU问题解决思路
+          <h2 class="post-title" itemprop="name headline">Gradle持续构建时gradlew无权限问题
 
               
             
@@ -384,7 +379,7 @@
                 
               
 
-              <time title="创建时间：2018-06-21 02:17:19" itemprop="dateCreated datePublished" datetime="2018-06-21T02:17:19+08:00">2018-06-21</time>
+              <time title="创建时间：2019-06-01 12:00:00" itemprop="dateCreated datePublished" datetime="2019-06-01T12:00:00+08:00">2019-06-01</time>
             </span>
           
 
@@ -399,7 +394,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
@@ -437,17 +432,20 @@
       
 
       
-        <blockquote>
-<p>在线上很容易出现java的cpu占用100%的问题，导致的情况可能是一直100%而使应用崩溃，或者很快CPU就降低使问题不容易定位，一般在这种线上CPU问题时，可以通过以下方式进行定位问题所在。</p>
-</blockquote>
-<h1 id="找出CPU占用最高的进程PID"><a href="#找出CPU占用最高的进程PID" class="headerlink" title="找出CPU占用最高的进程PID"></a>找出CPU占用最高的进程PID</h1><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">top</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://cdn.lwdy.xyz/blog/java-cpu-001.png" alt></p>
-<h1 id="找出占用高的线程tid"><a href="#找出占用高的线程tid" class="headerlink" title="找出占用高的线程tid"></a>找出占用高的线程<code>tid</code></h1><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">top</span> -H -p PID</span><br></pre></td></tr></table></figure>
-<p><img src="http://cdn.lwdy.xyz/blog/java-cpu-002.png" alt></p>
-<h1 id="将线程号转成16进制"><a href="#将线程号转成16进制" class="headerlink" title="将线程号转成16进制"></a>将线程号转成16进制</h1><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">printf</span> <span class="string">"%x\n"</span> tid</span><br></pre></td></tr></table></figure>
-<p><img src="http://cdn.lwdy.xyz/blog/java-cpu-003.png" alt></p>
-<h1 id="生成此线程当前的线程文件"><a href="#生成此线程当前的线程文件" class="headerlink" title="生成此线程当前的线程文件"></a>生成此线程当前的线程文件</h1><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jstack <span class="number">6007</span>&gt; /tmp/<span class="number">6007.</span>stack</span><br><span class="line">vim /tmp/<span class="number">6007.</span>stack</span><br><span class="line">/<span class="number">179</span>d</span><br></pre></td></tr></table></figure>
-<h1 id="根据线程文件中的问题描述定位代码"><a href="#根据线程文件中的问题描述定位代码" class="headerlink" title="根据线程文件中的问题描述定位代码"></a>根据线程文件中的问题描述定位代码</h1><p><img src="http://cdn.lwdy.xyz/blog/java-cpu-004.png" alt></p>
+        <p>最近发现Coding.net出了持续构建的功能，试着将一个手上的Android项目放到Coding.net上使用它的持续构建功能，运行打包时却提示了权限问题。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./<span class="string">gradlew:</span> Permission denied</span><br></pre></td></tr></table></figure>
+<p>因项目在Window下开发与打包，使用的是gradlew.exe，所以先前并没有遇到此问题。</p>
+<p>可以先在项目的根目录，通过<code>git ls-tree</code>可以查看文件的当前的权限信息来确定是否权限不足问题。</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git ls-<span class="built_in">tree</span> HEAD</span><br></pre></td></tr></table></figure>
+<p>644，可以看到gradle确实权限不足，<br><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="number">100644</span> blob cccdd3d517fc5249beaefa600691cf150f2fa3e6    gradle</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>这种情况下一般有两种解决办法：</p>
+<ol>
+<li>通过在linux上检出代码并通过<code>chmod +x</code>修改文件权限再提交。</li>
+<li>通过<code>git update-index --chmod=+x</code>给文件加权限，可在Window下执行</li>
+</ol>
+<p>update-index的详细命令可见参考：<a href="https://git-scm.com/docs/git-update-index" target="_blank" rel="noopener">https://git-scm.com/docs/git-update-index</a></p>
+<p>最后，通过如下命令给<code>gradlew</code>加上权限，并提交修改，打包问题解决。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">update</span>-<span class="keyword">index</span> <span class="comment">--chmod=+x gradlew</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -474,7 +472,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
+            <a href="/tags/gradlew/" rel="tag"># gradlew</a>
+          
+            <a href="/tags/git/" rel="tag"># git</a>
           
         </div>
       
@@ -487,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/20/linux-use-screen/" rel="next" title="使用Screen管理多个会话">
-                <i class="fa fa-chevron-left"></i> 使用Screen管理多个会话
+              <a href="/use-google-cloud-platform.html" rel="next" title="免费试用Google云">
+                <i class="fa fa-chevron-left"></i> 免费试用Google云
               </a>
             
           </div>
@@ -496,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/10/use-google-cloud-platform/" rel="prev" title="免费试用Google云">
-                免费试用Google云 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -547,17 +543,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -671,23 +658,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#找出CPU占用最高的进程PID"><span class="nav-number">1.</span> <span class="nav-text">找出CPU占用最高的进程PID</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出占用高的线程tid"><span class="nav-number">2.</span> <span class="nav-text">找出占用高的线程tid</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将线程号转成16进制"><span class="nav-number">3.</span> <span class="nav-text">将线程号转成16进制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成此线程当前的线程文件"><span class="nav-number">4.</span> <span class="nav-text">生成此线程当前的线程文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#根据线程文件中的问题描述定位代码"><span class="nav-number">5.</span> <span class="nav-text">根据线程文件中的问题描述定位代码</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       

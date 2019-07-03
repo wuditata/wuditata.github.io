@@ -18,8 +18,8 @@
   
   <entry>
     <title>Gradle持续构建时gradlew无权限问题</title>
-    <link href="https://tatawang.net/2019/06/01/gradlew-permission-denied/"/>
-    <id>https://tatawang.net/2019/06/01/gradlew-permission-denied/</id>
+    <link href="https://tatawang.net/gradlew-permission-denied.html"/>
+    <id>https://tatawang.net/gradlew-permission-denied.html</id>
     <published>2019-06-01T04:00:00.000Z</published>
     <updated>2019-07-02T10:22:21.000Z</updated>
     
@@ -46,8 +46,8 @@
   
   <entry>
     <title>免费试用Google云</title>
-    <link href="https://tatawang.net/2018/07/10/use-google-cloud-platform/"/>
-    <id>https://tatawang.net/2018/07/10/use-google-cloud-platform/</id>
+    <link href="https://tatawang.net/use-google-cloud-platform.html"/>
+    <id>https://tatawang.net/use-google-cloud-platform.html</id>
     <published>2018-07-10T00:04:02.000Z</published>
     <updated>2019-07-02T10:22:21.000Z</updated>
     
@@ -73,8 +73,8 @@
   
   <entry>
     <title>Java进程100%CPU问题解决思路</title>
-    <link href="https://tatawang.net/2018/06/21/java-jvm-cpu-100/"/>
-    <id>https://tatawang.net/2018/06/21/java-jvm-cpu-100/</id>
+    <link href="https://tatawang.net/java-jvm-cpu-100.html"/>
+    <id>https://tatawang.net/java-jvm-cpu-100.html</id>
     <published>2018-06-20T18:17:19.000Z</published>
     <updated>2019-07-02T10:22:21.000Z</updated>
     
@@ -101,8 +101,8 @@
   
   <entry>
     <title>使用Screen管理多个会话</title>
-    <link href="https://tatawang.net/2018/05/20/linux-use-screen/"/>
-    <id>https://tatawang.net/2018/05/20/linux-use-screen/</id>
+    <link href="https://tatawang.net/linux-use-screen.html"/>
+    <id>https://tatawang.net/linux-use-screen.html</id>
     <published>2018-05-20T10:26:05.000Z</published>
     <updated>2019-07-02T10:22:21.000Z</updated>
     
